@@ -1,6 +1,7 @@
 import ora from 'ora'
 import type { AIMessage } from '../types'
 import { generateImageToolDefinition } from './tools/generateImage'
+import { movieSearchToolDefinition } from './tools/movieSearch'
 
 export const showLoader = (text: string) => {
   const spinner = ora({
@@ -46,8 +47,8 @@ export const logMessage = (message: AIMessage) => {
         console.log(`\n${color}[ASSISTANT]${reset}`)
         console.log(`${tool.function.name}\n`)
 
-        if (tool.function.name === generateImageToolDefinition.name) {
-          console.log('\nDo you approve generating an image? (yes/no)\n')
+        if (tool.function.name === movieSearchToolDefinition.name) {
+          console.log('\nDo you approve movie search? (yes/no)\n')
         }
       })
       return
